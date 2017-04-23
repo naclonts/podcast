@@ -1,0 +1,5 @@
+secret_settings.py
+*.pyc
+__pycache__
+staticfiles/
+
