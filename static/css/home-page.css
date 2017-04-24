@@ -1,0 +1,55 @@
+
+/* Content container */
+.home-container {
+    width: 80%;
+    height: 500px;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+
+/* About the podcast */
+.about {
+    width: 40%;
+    float: left;
+    font-family: monospace;
+    padding: 5px;
+    margin-bottom: 20px;
+    color: #eee;
+    background-color: rgb(24, 129, 61);
+}
+
+/* Latest episodes */
+.episode-list {
+    margin-left: 45%;
+    height: 500px;
+}
+
+.episode-list h3 {
+    margin: 0 0 5px 0;
+    color: hsl(182, 100%, 46%);
+}
+
+.episode-list a {
+    color: black;
+    text-decoration: none;
+    transition: 0.6s letter-spacing;
+}
+.episode-list a:hover {
+    letter-spacing: 2px;
+}
+
+.episode-summary {
+    border-bottom: 1px solid #666; 
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 599px) {
+    .about {
+        width: auto;
+    }
+    
+    .episode-list {
+        margin-left: auto;
+    }
+}

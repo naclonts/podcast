@@ -1,0 +1,28 @@
+
+.episode-date {
+    color: #666;
+    text-align: left;
+    font-size: 0.8em;
+}
+
+
+.episode-container {
+    margin: 3%;
+}
+
+.episode-title {
+    transition: all 0.3s ease-in;
+}
+.episode-title:hover {
+    letter-spacing: 2px;
+}
+
+/* Allow episodes to have whitespace with <pre> tag, but still wrap and keep font family */
+.episode-content-pre {
+    font-family: inherit;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}

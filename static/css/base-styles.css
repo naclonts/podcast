@@ -26,24 +26,19 @@ body {
     transition: 0.3s border-bottom;
 }
 
+#menu a {
+    border-bottom: 4px solid #666;
+}
+
+#menu a:hover {
+    border-bottom: 4px solid hsl(182, 100%, 46%);
+}
+
 @media screen and (min-width: 600px) {
     #menu li {
         display: inline-block;        
         margin-right: 2em;
         border-bottom: none;
     }
-    
-    #menu a {
-        border-bottom: 4px solid #666;
-    }
-    
-    #menu a:hover {
-        border-bottom: 4px solid hsl(182, 100%, 46%);
-    }
 }
 
-
-/* Content container */
-#content {
-    margin: 50px 50px 50px 50px;
-}

@@ -9,7 +9,6 @@ def index(request):
 
 def episode_list(request):
     episodes = Episode.objects.all()
-    print(episodes)
     context = { 'episodes': episodes }
     return render(request, 'podcast/episode_list.html', context=context)
 

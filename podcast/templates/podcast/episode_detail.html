@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static "podcast/css/episode-detail.css" %}" type="text/css" />
+{% endblock %}
+
 {% block content %}
 <body>
     <div class="foreground-container">
