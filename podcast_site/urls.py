@@ -22,6 +22,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.home_page, name='home_page'),
-    url(r'^podcast/', include('podcast.urls')),
+    url(r'^podcast/', include('podcast.urls', namespace='podcast')),
     url(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
