@@ -1,0 +1,38 @@
+body {
+    font-family: Open Sans, sans-serif;
+}
+
+#menu ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+#menu li {
+    font-size: 1.2em;
+    line-height: 2em;
+    height: 2em;
+    border-bottom: 1px solid #888;
+    font-weight: bold;
+}
+
+#menu a {
+    text-decoration: none;
+    color: hsl(215, 76%, 31%);
+    color: #0a0a0a;
+    text-transform: uppercase;
+}
+
+
+@media screen and (min-width: 600px) {
+    #menu li {
+        display: inline-block;        
+        margin-right: 20px;
+        border-bottom: none;
+    }
+    
+    #menu a {
+        border-bottom: 3px solid #888;
+    }
+}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<body>
+    <div class="foreground-container">
+        <div class="episode-container">
+            <h1 class="episode-title">{{ episode.title|safe }}</h1>
+            
+            <audio class="episode-player" controls src="{{ episode.audio_file.url }}">
+                Your browser does not support the <code>audio</code> element.
+            </audio>
+            
+            <!-- Wrap content in <pre> to allow whitespace  -->
+            <pre class="episode-content-pre">
+                <p class="episode-content">{{ episode.description|safe }}</p>
+            </pre>
+            <p class="episode-date">
+                {{ episode.publish_date }}
+            </p>
+        </div>
+    </div>
+    <canvas id="background-canvas"></canvas>
+</body>
+{% endblock %}
+
+{% block scripts %}
+<!--<script src="{% static "js/blog-background.js" %}" type="text/javascript" ></script>-->
+{% endblock %}
