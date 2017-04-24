@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+    <div class="episode-list">
+        {% for episode in episodes %}
+            <h3>{{ episode.title }}</h3>
+            <audio class="episode-player" controls src="{{ episode.audio_file.url }}">
+                Your browser does not support the <code>audio</code> element.
+            </audio>
+            <p>{{ episode.description }}</p>
+        {% endfor %}
+    </div>
+</body>
+{% endblock %}

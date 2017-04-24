@@ -2,6 +2,8 @@ body {
     font-family: Open Sans, sans-serif;
 }
 
+
+/* Menu */
 #menu ul {
     list-style: none;
     text-align: center;
@@ -13,26 +15,35 @@ body {
     font-size: 1.2em;
     line-height: 2em;
     height: 2em;
-    border-bottom: 1px solid #888;
     font-weight: bold;
 }
 
 #menu a {
     text-decoration: none;
-    color: hsl(215, 76%, 31%);
     color: #0a0a0a;
     text-transform: uppercase;
+    border-bottom: 1px solid #888;
+    transition: 0.3s border-bottom;
 }
-
 
 @media screen and (min-width: 600px) {
     #menu li {
         display: inline-block;        
-        margin-right: 20px;
+        margin-right: 2em;
         border-bottom: none;
     }
     
     #menu a {
-        border-bottom: 3px solid #888;
+        border-bottom: 4px solid #666;
     }
+    
+    #menu a:hover {
+        border-bottom: 4px solid hsl(182, 100%, 46%);
+    }
+}
+
+
+/* Content container */
+#content {
+    margin: 50px 50px 50px 50px;
 }
