@@ -3,27 +3,29 @@
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{% static "podcast/css/episode-detail.css" %}" type="text/css" />
+<link rel="stylesheet" href="{% static "css/home-page.css" %}" type="text/css" />
 {% endblock %}
 
 {% block content %}
 <body>
-    <div class="foreground-container">
-        <div class="episode-container">
-            <h1 class="episode-title">{{ episode.title|safe }}</h1>
-            
-            <audio class="episode-player" controls src="{{ episode.audio_file.url }}">
-                Your browser does not support the <code>audio</code> element.
-            </audio>
-            
-            <!-- Wrap content in <pre> to allow whitespace  -->
-            <pre class="episode-content-pre">
-                <p class="episode-content">{{ episode.description|safe }}</p>
-            </pre>
-            <p class="episode-date">
-                {{ episode.publish_date }}
-            </p>
-        </div>
+    <h1 class="podcast-title"><a class="nostyle" href="https://nathanclonts.com/podcast">Accountability Hour</a></h1>
+
+    <div class="episode-container">
+        <h1 class="episode-title">{{ episode.title|safe }}</h1>
+
+        <audio class="episode-player" controls src="{{ episode.audio_file.url }}">
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+
+        <!-- Wrap content in <pre> to allow whitespace  -->
+        <pre class="episode-content-pre">
+            <p class="episode-content">{{ episode.description|safe }}</p>
+        </pre>
+        <p class="episode-date">
+            {{ episode.publish_date|date:"l, F d, Y" }}
+        </p>
     </div>
+
 </body>
 {% endblock %}
 

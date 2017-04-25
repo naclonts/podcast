@@ -3,18 +3,11 @@
     color: #666;
     text-align: left;
     font-size: 0.8em;
+    text-transform: uppercase;
 }
-
 
 .episode-container {
     margin: 3%;
-}
-
-.episode-title {
-    transition: all 0.3s ease-in;
-}
-.episode-title:hover {
-    letter-spacing: 2px;
 }
 
 /* Allow episodes to have whitespace with <pre> tag, but still wrap and keep font family */

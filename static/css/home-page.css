@@ -9,11 +9,10 @@ To do
 
 /* Content container */
 .home-container {
-    padding: 1%;
 }
 
 .podcast-title {
-    margin: 2.5% 0 5% 0;
+    margin: 2% 0 5% 0;
     width: 100%;
     text-align: center;
     font-size: 1.5em;
@@ -34,17 +33,14 @@ To do
     float: left;
 }
 
-.episode-list h3 {
-    margin: 0 0 5px 0;
-    color: hsl(182, 100%, 46%);
-}
-
-.episode-list a {
-    color: black;
+.episode-title {
+    margin-top: 0;
+    color: hsl(300, 7%, 25%);
     text-decoration: none;
+    font-size: 1.5em;
     transition: 0.6s letter-spacing;
 }
-.episode-list a:hover {
+.episode-title:hover {
     letter-spacing: 2px;
 }
 
@@ -69,7 +65,7 @@ To do
     }
     
     .about {
-        margin-left: 65%;
+        margin-right: 5%;
         margin-top: 60px;
     }
     

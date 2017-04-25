@@ -8,12 +8,14 @@
 {% block content %}
 <body>
 <section class="home-container">
-    <h1 class="podcast-title">Accountability Hour</h1>
+    <h1 class="podcast-title"><a class="nostyle" href="https://nathanclonts.com/podcast">Accountability Hour</a></h1>
 
     <div class="episode-list">
         {% for episode in episodes %}
         <div class="episode-summary">
-            <h3><a href="{% url 'podcast:episode' slug=episode.slug %}">{{ episode.title }}</a></h3>
+            <h3 class="episode-title">
+                <a class="nostyle" href="{% url 'podcast:episode' slug=episode.slug %}">{{ episode.title }}</a>
+            </h3>
             <audio class="episode-player" controls src="{{ episode.audio_file.url }}">
                 Your browser does not support the <code>audio</code> element.
             </audio>
