@@ -1,27 +1,36 @@
 
 /* Content container */
 .home-container {
-    width: 80%;
-    height: 500px;
-    margin: 20px 0;
-    padding: 10px;
+    padding: 1%;
 }
 
+.podcast-title {
+    padding: 2% 0 2% 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    font-size: 8vw;
+    font-weight: 1200;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: hsl(300, 7%, 30%);
+    font-family: 'Open Sans Extra Bold', serif;
+    border-bottom: 2px solid hsl(182, 100%, 46%);
+}
 
 /* About the podcast */
 .about {
-    width: 40%;
     float: left;
-    font-family: monospace;
-    padding: 5px;
     margin-bottom: 20px;
-    color: #eee;
-    background-color: rgb(24, 129, 61);
+    color: #666;
+    
+    padding: 5px;
 }
 
 /* Latest episodes */
 .episode-list {
-    margin-left: 45%;
+    margin-right: 5%;
     height: 500px;
 }
 
@@ -44,12 +53,16 @@
     margin-bottom: 20px;
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (min-width: 600px) {
+    .podcast-title {
+        font-size: 3em;
+    }
+    
     .about {
-        width: auto;
+        width: 35%;
     }
     
     .episode-list {
-        margin-left: auto;
+        margin-left: 40%;
     }
 }
