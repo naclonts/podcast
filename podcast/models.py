@@ -17,19 +17,26 @@ class Episode(models.Model):
 
     class Meta:
         ordering = ['-publish_date']
-        
+
     def save(self, **kwargs):
         slug_str = '%s' % self.title
         unique_slugify(self, slug_str.lower())
         super(Episode, self).save(**kwargs)
-        
+
+    def short_description(self, max_length=100):
+        """Returns the beginning of the episode's descriptions."""
+        if len(self.description) <= max_length:
+            return self.description
+        s = ''
+        d = self.description.split()
+        while len(s) < max_length:
+            s += d.pop(0) + ' '
+        s = s.strip() + '...'
+        return s
+
+
     def __str__(self):
         return '%s' % self.title
-
-#    @models.permalink
-#    def get_absolute_url(self):
-#        return 'episode:posts', (self.slug,)
-
 
 
 def unique_slugify(instance, value, slug_field_name='slug', queryset=None,
@@ -100,4 +107,3 @@ def _slug_strip(value, separator='-'):
             re_sep = re.escape(separator)
         value = re.sub(r'^%s+|%s+$' % (re_sep, re_sep), '', value)
     return value
-

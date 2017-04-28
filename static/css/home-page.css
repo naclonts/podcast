@@ -2,8 +2,6 @@
 To do
 - thicker title font
 - title bottom border
-- swap sides
-
 
 */
 
@@ -30,11 +28,12 @@ To do
 .episode-list {
     margin-right: 5%;
     padding-left: 5%;
+    max-width: 40em;
     float: left;
 }
 
 .episode-title {
-    margin-top: 0;
+    margin: 0;
     color: hsl(300, 7%, 25%);
     text-decoration: none;
     font-size: 1.5em;
@@ -45,9 +44,21 @@ To do
 }
 
 .episode-summary {
-    border-bottom: 1px solid #666; 
+    border-bottom: 1px solid #666;
     margin-bottom: 20px;
 }
+
+.episode-player {
+    margin-top: 1em;
+}
+
+.episode-date {
+    color: #666;
+    text-align: left;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
 
 /* About the podcast */
 .about {
@@ -63,12 +74,12 @@ To do
         font-size: 3em;
 /*        font-size: 6vw;*/
     }
-    
+
     .about {
         margin-right: 5%;
         margin-top: 60px;
     }
-    
+
     .episode-list {
         width: 60%;
     }
