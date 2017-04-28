@@ -52,9 +52,49 @@ h2.episode-title {
     margin-bottom: 20px;
 }
 
+/* Audio player & download button */
+.audio-with-download {
+    margin-top: 1.5em;
+}
+
 .episode-player {
-    margin-top: 2em;
-    margin-bottom: 1em;
+    vertical-align: middle;
+    margin-right: 1.5em;
+}
+
+.download span {
+    height: 1.5em;
+    line-height: 1.5em;
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto;
+    padding: 1px;
+    border: 3px solid #444;
+    border-radius: 4px;
+
+    font-family: sans-serif;
+    text-transform: uppercase;
+    background-color: #42403E;
+    color: white;
+
+    -webkit-transition:all 0.5s linear;
+    -moz-transition:all 0.5s linear;
+    -o-transition:all 0.5s linear;
+    transition:all 0.5s linear;
+    -moz-box-shadow: 2px 2px 4px 0px hsl(181, 98%, 36%);
+    -webkit-box-shadow:  2px 2px 4px 0px hsl(182, 100%, 0%);
+    box-shadow: 2px 2px 4px 0px hsl(182, 10%, 40%);
+    -moz-border-radius:7px 7px 7px 7px ;
+    -webkit-border-radius:7px 7px 7px 7px ;
+    border-radius:7px 7px 7px 7px ;
+}
+.download span:hover, .download span:active, .download span:focus {
+    -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    box-shadow: 10px 10px 15px hsla(182, 100%, 30%, 0.4);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .episode-date {
