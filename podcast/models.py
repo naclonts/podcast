@@ -12,8 +12,6 @@ class Episode(models.Model):
     description = models.TextField(max_length=10000)
     publish_date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True)
-    #links
-    #featuring
 
     class Meta:
         ordering = ['-publish_date']
@@ -33,7 +31,6 @@ class Episode(models.Model):
             s += d.pop(0) + ' '
         s = s.strip() + '...'
         return s
-
 
     def __str__(self):
         return '%s' % self.title

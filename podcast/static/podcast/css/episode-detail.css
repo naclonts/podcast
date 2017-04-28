@@ -1,6 +1,6 @@
 
 .episode-container {
-    margin: 3%;
+    margin: auto;
 }
 
 /* Allow episodes to have whitespace with <pre> tag, but still wrap and keep font family */
@@ -11,4 +11,13 @@
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    margin: 0;
+    padding: 0;
+}
+
+/* Widescreen */
+@media screen and (min-width: 600px) {
+    .episode-container {
+        max-width: 40em;
+    }
 }
