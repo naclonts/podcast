@@ -12,13 +12,7 @@
 
     <div class="episode-container">
         <h2 class="episode-title">{{ episode.title|safe }}</h2>
-<!--
-        <div class="audio-with-download">
-            <audio class="episode-player" controls src="{{ episode.audio_file.url }}">
-                Your browser does not support the <code>audio</code> element.
-            </audio>
-            <a class="nostyle download" href="{{ episode.audio_file.url }}"><span>Download</span></a>
-        </div> -->
+
         <div class="player-container">
             <audio id="player-audio">
                 <source src="{{ episode.audio_file.url }}" />
