@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static "podcast/css/episode-detail.css" %}" type="text/css" />
+<link rel="stylesheet" href="{% static "css/home-page.css" %}" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<body>
+    <h1 class="podcast-title"><a class="nostyle" href="https://nathanclonts.com/podcast"
+                                 title="Accountability Hour">
+                                 Accountability Hour
+                             </a></h1>
+
+
+
+    <div class="episode-list">
+        <h2 class="category-header">All episodes</h2>
+        {% for episode in episodes %}
+        <div class="episode-summary">
+            <h3 class="episode-title">
+                <a class="nostyle" href="{% url 'podcast:episode' slug=episode.slug %}">{{ episode.title }}</a>
+            </h3>
+            <p class="episode-date">{{ episode.publish_date|date:"l, F d, Y" }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+{% endblock %}
+
+{% block scripts %}
+<!--<script src="{% static "js/blog-background.js" %}" type="text/javascript" ></script>-->
+{% endblock %}

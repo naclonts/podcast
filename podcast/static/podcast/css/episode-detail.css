@@ -15,6 +15,10 @@
     padding: 0;
 }
 
+.category-header {
+    margin: 5% 0 5% 0;
+}
+
 /* Widescreen */
 @media screen and (min-width: 600px) {
     .episode-container {
