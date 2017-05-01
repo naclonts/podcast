@@ -7,6 +7,10 @@
     margin: 5px;
 }
 
+.episode-date {
+    margin-left: 5px;
+}
+
 /* Allow episodes to have whitespace with <pre> tag, but still wrap and keep font family */
 .episode-content-pre {
     font-family: inherit;

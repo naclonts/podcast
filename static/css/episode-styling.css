@@ -87,6 +87,14 @@ audio {
     padding: 0;
 }
 
+.seeker-canvas {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    max-width: 100%;
+    outline: 1px solid red;
+}
+
 
 input[type=range] {
   -webkit-appearance: none;
