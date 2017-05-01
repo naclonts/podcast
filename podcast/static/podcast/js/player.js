@@ -9,6 +9,7 @@ var playButton = {
     el: document.querySelector('.js-button'),
     audio: document.getElementById('player-audio'),
     ctx: document.getElementById('seeker-canvas').getContext('2d'),
+    seeker: document.getElementById('seeker-input'),
 
     states: {
         playing: {
@@ -28,6 +29,7 @@ var playButton = {
         this.replaceUseEl();
         this.drawSeeker();
         this.el.addEventListener('click', this.goToNextState.bind(this));
+        this.seeker.addEventListener('mouseup', this.updatePosition.bind(this));
     },
 
     setInitialState: function () {
@@ -43,6 +45,7 @@ var playButton = {
             .attr('d', this.stateIconPath());
     },
 
+    // Alternate between Play and Pause icons
     goToNextState: function () {
         this.setState(this.state.nextState);
 
@@ -63,6 +66,13 @@ var playButton = {
 
     stateIconPath: function () {
         return this.state.iconEl.getAttribute('d');
+    },
+
+    // Update position of playback on release of input range
+    updatePosition: function (e) {
+        // seeker.value ranges between 0 (beginning of audio) and 1 (end)
+        var newTime = this.seeker.value * this.audio.duration;
+        this.audio.currentTime = newTime;
     },
 
     drawSeeker: function () {
