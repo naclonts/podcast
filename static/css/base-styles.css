@@ -1,7 +1,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    background-color: #faf3e6;
+    background-color: hsl(38, 66%, 94%);
     color: hsl(0, 0%, 20%);
     font-family: serif;
 }

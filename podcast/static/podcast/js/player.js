@@ -79,14 +79,14 @@ var playButton = {
         var w = this.ctx.canvas.width;
         var h = this.ctx.canvas.height;
         var mid = h / 2;
-        var amp = h / 2.2;
+        var amp = h / 2.5;
 
         this.ctx.moveTo(0, mid);
         for (var x=0; x < 360; x++) {
             var y = mid + Math.sin(x*Math.PI / 30) * amp;
-            this.ctx.lineTo(x, y);
+            this.ctx.lineTo(Math.round(x), Math.round(y));
         }
-        this.ctx.strokeStyle = 'black';
+        this.ctx.strokeStyle = 'hsl(300, 10%, 35%)';
         this.ctx.lineWidth = 3;
         this.ctx.stroke();
     }
