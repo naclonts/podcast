@@ -1,5 +1,4 @@
 body, html {
-/*    font-family: Open Sans, serif;*/
     margin: 0;
     padding: 0;
     background-color: #faf3e6;
@@ -49,9 +48,32 @@ body, html {
     }
 }
 
+/* Title of the 'cast '*/
+.podcast-title {
+    margin: 2% 0 5% 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    font-size: 8vw;
+    font-weight: bolder;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: hsl(300, 7%, 30%);
+    font-family: serif;
+    border-bottom: 4px double #666;
+}
+
+
 
 /* No styles (use inherited) for blank <a> tags */
 a.nostyle {
     text-decoration: inherit;
     color: inherit;
+}
+
+/* Widescreen stylings */
+@media screen and (min-width: 600px) {
+    .podcast-title {
+        font-size: 3em;
+    }
 }

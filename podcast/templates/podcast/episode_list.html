@@ -3,16 +3,11 @@
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{% static "css/home-page.css" %}" type="text/css" />
-<link rel="stylesheet" href="{% static "podcast/css/episode-detail.css" %}" type="text/css" />
+<link rel="stylesheet" href="{% static "css/episode-styling.css" %}" type="text/css" />
 {% endblock %}
 
 {% block content %}
 <body>
-    <h1 class="podcast-title"><a class="nostyle" href="{% url 'home_page' %}"
-                                 title="Accountability Hour">
-                                 Accountability Hour
-                             </a></h1>
-
     <div class="episode-list">
         <h2 class="category-header">All episodes</h2>
         {% for episode in episodes %}

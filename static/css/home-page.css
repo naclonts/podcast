@@ -1,26 +1,5 @@
-/*
-To do
-- thicker title font
-- title bottom border
-
-*/
-
 /* Content container */
 .home-container {
-}
-
-.podcast-title {
-    margin: 2% 0 5% 0;
-    width: 100%;
-    text-align: center;
-    font-size: 1.5em;
-    font-size: 8vw;
-    font-weight: bolder;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: hsl(300, 7%, 30%);
-    font-family: serif;
-    border-bottom: 4px double #666;
 }
 
 
@@ -32,34 +11,9 @@ To do
     float: left;
 }
 
-.episode-title {
-    margin: 0;
-    color: hsl(300, 7%, 25%);
-    text-decoration: none;
-    transition: 0.6s letter-spacing;
-    font-family: serif;
-}
-.episode-title:hover {
-    letter-spacing: 1px;
-}
-
-h2.episode-title {
-    font-size: 2em;
-}
-
-.episode-summary {
-    border-bottom: 1px solid #666;
-    margin-bottom: 20px;
-}
-
 /* Audio player & download button */
 .audio-with-download {
     margin-top: 1.5em;
-}
-
-.episode-player {
-    vertical-align: middle;
-    margin-right: 1.5em;
 }
 
 .download span {
@@ -97,14 +51,6 @@ h2.episode-title {
     transform: scale(1.05);
 }
 
-.episode-date {
-    color: #666;
-    text-align: left;
-    font-size: 0.8em;
-    text-transform: uppercase;
-}
-
-
 /* About the podcast */
 .about {
     color: #666;
@@ -115,10 +61,6 @@ h2.episode-title {
 
 /* Widescreen */
 @media screen and (min-width: 600px) {
-    .podcast-title {
-        font-size: 3em;
-    }
-
     .about {
         margin-right: 5%;
         margin-top: 60px;
@@ -127,26 +69,4 @@ h2.episode-title {
     .episode-list {
         width: 60%;
     }
-}
-
-
-audio:hover, audio:focus, audio:active {
-    -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-    -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-    box-shadow: 10px 10px 15px hsla(182, 100%, 30%, 0.4);
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    transform: scale(1.05);
-}
-audio {
-    -webkit-transition:all 0.5s linear;
-    -moz-transition:all 0.5s linear;
-    -o-transition:all 0.5s linear;
-    transition:all 0.5s linear;
-    -moz-box-shadow: 2px 2px 4px 0px hsl(181, 98%, 36%);
-    -webkit-box-shadow:  2px 2px 4px 0px hsl(182, 100%, 0%);
-    box-shadow: 2px 2px 4px 0px hsl(182, 10%, 40%);
-    -moz-border-radius:7px 7px 7px 7px ;
-    -webkit-border-radius:7px 7px 7px 7px ;
-    border-radius:7px 7px 7px 7px ;
 }
