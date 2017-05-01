@@ -8,7 +8,10 @@
 
 {% block content %}
 <body>
-    <h1 class="podcast-title"><a class="nostyle" href="https://nathanclonts.com/podcast">Accountability Hour</a></h1>
+    <h1 class="podcast-title"><a class="nostyle" href="{% url 'home_page' %}"
+                                 title="Accountability Hour">
+                                 Accountability Hour
+                             </a></h1>
 
     <div class="episode-container">
         <h2 class="episode-title">{{ episode.title|safe }}</h2>
