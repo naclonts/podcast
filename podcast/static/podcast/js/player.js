@@ -71,10 +71,6 @@ var playButton = {
 
     // Update position of playback on release of input range
     updatePosition: function (e) {
-        // Prevent continuation of event in case of touch & mouse triggering
-        e.preventDefault();
-        e.stopPropagation();
-
         // seeker.value ranges between 0 (beginning of audio) and 1 (end)
         var newTime = this.seeker.value * this.audio.duration;
         this.audio.currentTime = newTime;
