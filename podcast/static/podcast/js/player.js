@@ -30,6 +30,7 @@ var playButton = {
         this.drawSeeker();
         this.el.addEventListener('click', this.goToNextState.bind(this));
         this.seeker.addEventListener('mouseup', this.updatePosition.bind(this));
+        this.seeker.addEventListener('touchend', this.updatePosition.bind(this));
     },
 
     setInitialState: function () {
@@ -70,6 +71,10 @@ var playButton = {
 
     // Update position of playback on release of input range
     updatePosition: function (e) {
+        // Prevent continuation of event in case of touch & mouse triggering
+        e.preventDefault();
+        e.stopPropagation();
+
         // seeker.value ranges between 0 (beginning of audio) and 1 (end)
         var newTime = this.seeker.value * this.audio.duration;
         this.audio.currentTime = newTime;
