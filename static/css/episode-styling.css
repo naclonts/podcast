@@ -193,7 +193,7 @@ input[type=range]::-ms-thumb:active {
     text-align: center;
     box-shadow: 1px 1px 4px #666;
     white-space: nowrap;
-    transition: 2s opacity, 0.3s left;
+    transition: 1s opacity, 0.3s left;
 }
 #seeker-status p {
     padding: 0;

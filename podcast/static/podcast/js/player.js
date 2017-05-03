@@ -138,7 +138,7 @@ var playButton = {
         // Remove after a bit
         this.timeouts.push(setTimeout(function () {
             document.getElementById('seeker-status').style.opacity = 0;
-        }, 1000));
+        }, 2000));
         this.timeouts.push(setTimeout(function () {
             document.getElementById('seeker-status').style.display = 'none';
         }, 3000));
