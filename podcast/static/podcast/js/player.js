@@ -65,15 +65,17 @@ var playButton = {
             .attr('d', this.stateIconPath());
     },
 
-    // Alternate between Play and Pause icons
-    goToNextState: function () {
-        this.setState(this.state.nextState);
 
+    // Alternate between Play and Pause icons
+    // @param {string} newState defaults to toggle if not specified
+    goToNextState: function (e, newState) {
+        if (!newState) newState = this.state.nextState;
+        this.setState(newState);
         d3.select(this.button.querySelector('.js-icon')).transition()
             .duration(this.animationDuration)
             .attr('d', this.stateIconPath());
 
-        if (this.audio.paused) {
+        if (newState == 'playing') {
             this.audio.play();
         } else {
             this.audio.pause();
@@ -94,6 +96,11 @@ var playButton = {
         if (this.seekInProgress) return;
 
         var newPosition = this.audio.currentTime / this.audio.duration;
+
+        // At end of track, set icon to pause
+        if (newPosition == 1) {
+            this.goToNextState(null, 'paused');
+        }
         this.seeker.value = newPosition;
     },
 
@@ -103,7 +110,8 @@ var playButton = {
         var newTime = this.seeker.value * this.audio.duration;
         this.audio.currentTime = newTime;
 
-        this.seekInProgress = false; // done seeking
+        // done seeking
+        this.seekInProgress = false;
     },
 
     // Draw sin wave background for seeker
