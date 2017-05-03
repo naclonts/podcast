@@ -6,7 +6,7 @@
 
 /* global d3, document */
 var playButton = {
-    el: document.querySelector('.js-button'),
+    button: document.querySelector('.js-button'),
     audio: document.getElementById('player-audio'),
     ctx: document.getElementById('seeker-canvas').getContext('2d'),
     seeker: document.getElementById('seeker-input'),
@@ -22,26 +22,45 @@ var playButton = {
         }
     },
 
-    animationDuration: 350,
+    animationDuration: 350, // Duration of play/pause button transition
+    seekerUpdateFrequency: 1000, // Interval in ms to update seeker position
+    intervalID: 0,
+    seekInProgress: false,
 
     init: function () {
         this.setInitialState();
-        this.replaceUseEl();
+        this.replaceUseElement();
         this.drawSeeker();
-        this.el.addEventListener('click', this.goToNextState.bind(this));
-        this.seeker.addEventListener('mouseup', this.updatePosition.bind(this));
-        this.seeker.addEventListener('touchend', this.updatePosition.bind(this));
+
+        // Play/pause button click
+        this.button.addEventListener('click', this.goToNextState.bind(this));
+
+        // Update audio seeker as playback progresses
+        this.intervalID = setInterval(this.updatePosition.bind(this),
+                                      this.seekerUpdateFrequency);
+
+        // Moving audio position
+        this.seeker.addEventListener('mouseup', this.setPosition.bind(this));
+        this.seeker.addEventListener('touchend', this.setPosition.bind(this));
+
+        var setSeek = function (e) {
+            this.seekInProgress = true;
+        };
+        // Record when user is seeking
+        this.seeker.addEventListener('mousedown', setSeek.bind(this));
+        this.seeker.addEventListener('touchstart', setSeek.bind(this));
     },
 
     setInitialState: function () {
-      var initialIconRef = this.el.querySelector('use').getAttribute('xlink:href');
-      var stateName = this.el.querySelector(initialIconRef).getAttribute('data-state');
-      this.setState(stateName);
+        var b = this.button;
+        var initialIconRef = b.querySelector('use').getAttribute('xlink:href');
+        var stateName = b.querySelector(initialIconRef).getAttribute('data-state');
+        this.setState(stateName);
     },
 
-    replaceUseEl: function () {
-        d3.select(this.el.querySelector('use')).remove();
-        d3.select(this.el.querySelector('svg')).append('path')
+    replaceUseElement: function () {
+        d3.select(this.button.querySelector('use')).remove();
+        d3.select(this.button.querySelector('svg')).append('path')
             .attr('class', 'js-icon')
             .attr('d', this.stateIconPath());
     },
@@ -50,7 +69,7 @@ var playButton = {
     goToNextState: function () {
         this.setState(this.state.nextState);
 
-        d3.select(this.el.querySelector('.js-icon')).transition()
+        d3.select(this.button.querySelector('.js-icon')).transition()
             .duration(this.animationDuration)
             .attr('d', this.stateIconPath());
 
@@ -69,13 +88,25 @@ var playButton = {
         return this.state.iconEl.getAttribute('d');
     },
 
-    // Update position of playback on release of input range
+    // Move seeker input as playback progresses
     updatePosition: function (e) {
+        // While mouse is being held down, don't move back to current position
+        if (this.seekInProgress) return;
+
+        var newPosition = this.audio.currentTime / this.audio.duration;
+        this.seeker.value = newPosition;
+    },
+
+    // Update position of playback on release of seeker input range
+    setPosition: function (e) {
         // seeker.value ranges between 0 (beginning of audio) and 1 (end)
         var newTime = this.seeker.value * this.audio.duration;
         this.audio.currentTime = newTime;
+
+        this.seekInProgress = false; // done seeking
     },
 
+    // Draw sin wave background for seeker
     drawSeeker: function () {
         var w = this.ctx.canvas.width;
         var h = this.ctx.canvas.height;
@@ -93,7 +124,7 @@ var playButton = {
     }
 };
 
-window.addEventListener('load', function(e) {
+window.addEventListener('load', function (e) {
     if (window.HTMLAudioElement) {
         playButton.init();
     }
