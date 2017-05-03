@@ -26,6 +26,7 @@ var playButton = {
     seekerUpdateFrequency: 1000, // Interval in ms to update seeker position
     intervalID: 0,
     seekInProgress: false,
+    timeouts: [],
 
     init: function () {
         this.setInitialState();
@@ -112,6 +113,35 @@ var playButton = {
 
         // done seeking
         this.seekInProgress = false;
+
+        // clear timeouts that make pop up dissapear
+        this.clearTimeouts();
+
+        // Show popup with current time out of total
+        var statusText = this.secondsToHHMMSS(this.audio.currentTime) + ' / '
+                         + this.secondsToHHMMSS(this.audio.duration);
+        document.getElementById('seeker-status-text').innerHTML = statusText;
+        // Set status box to current position
+        var status = document.getElementById('seeker-status');
+        status.style.display = 'block';
+        status.style.opacity = 1;
+        var containerLeft = document.getElementById('player-container')
+                                    .getBoundingClientRect().left;
+        var x = e.clientX - containerLeft;
+        // Check boundaries
+        var inputBox = this.seeker.getBoundingClientRect();
+        x = Math.min(x, inputBox.right - containerLeft);
+        x = Math.max(x, inputBox.left - containerLeft);
+        // Assign to CSS
+        var statusLeft = x - status.clientWidth / 2;
+        status.style.left = statusLeft + 'px';
+        // Remove after a bit
+        this.timeouts.push(setTimeout(function () {
+            document.getElementById('seeker-status').style.opacity = 0;
+        }, 1000));
+        this.timeouts.push(setTimeout(function () {
+            document.getElementById('seeker-status').style.display = 'none';
+        }, 3000));
     },
 
     // Draw sin wave background for seeker
@@ -129,6 +159,26 @@ var playButton = {
         this.ctx.strokeStyle = 'hsl(300, 10%, 35%)';
         this.ctx.lineWidth = 3;
         this.ctx.stroke();
+    },
+
+    // Utility functions
+    // Return seconds in HH:MM:SS format, or MM:SS format if less than 1 hour
+    secondsToHHMMSS: function (seconds) {
+        var d = new Date(null);
+        d.setSeconds(seconds);
+
+        // if >1 hour, include hours; otherwise just mm:ss
+        if (seconds >= 3600) {
+            return d.toISOString().substr(11, 8);
+        } else {
+            return d.toISOString().substr(14, 5);
+        }
+    },
+
+    clearTimeouts: function () {
+        for (var i=0; i < this.timeouts.length; i++) {
+            clearTimeout(this.timeouts[i]);
+        }
     }
 };
 
