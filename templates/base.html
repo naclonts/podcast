@@ -18,19 +18,24 @@
             <header>
                 <nav id="menu">
                     <ul>
-                        <li><a href="{% url 'home_page' %}">home</a></li>
-                        <li><a href="{% url 'podcast:episode_list' %}">episodes</a></li>
-                        <li><a href="#">art</a></li>
-                        <li><a href="#">music</a></li>
-                        <li><a href="#">subscribe</a></li>
+                        <li><a class="menu-a" href="{% url 'home_page' %}">home</a></li>
+                        <li><a class="menu-a" href="{% url 'podcast:episode_list' %}">episodes</a></li>
+                        <li><a class="menu-a" href="#">art</a></li>
+                        <li><a class="menu-a" href="#">music</a></li>
+                        <li><a class="menu-a" href="#">subscribe</a></li>
                     </ul>
                 </nav>
+
+                <div class="menu-toggle">
+                    <a class="menu-a is-active" href="#menu" id="menu-open">Menu</a>
+                    <a class="menu-a" href="#" id="menu-close">Close</a>
+                </div>
+
+                <h1 class="podcast-title"><a class="nostyle" href="{% url 'home_page' %}"
+                                             title="Accountability Hour">Accountability Hour</a></h1>
             </header>
 
-            <h1 class="podcast-title"><a class="nostyle" href="{% url 'home_page' %}"
-                                         title="Accountability Hour">
-                                         Accountability Hour
-                                     </a></h1>
+
 
             <section id="content">
             {% block content %}{% endblock %}
@@ -42,5 +47,6 @@
         </div>
     </body>
 
+    <script src="{% static "js/responsive.js" %}" type="text/javascript"></script>
     {% block scripts %}{% endblock %}
 </html>

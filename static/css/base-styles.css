@@ -1,56 +1,33 @@
 body, html {
     margin: 0;
     padding: 0;
+    height: 100%;
     background-color: hsl(38, 66%, 94%);
     color: hsl(0, 0%, 20%);
     font-family: serif;
+    transition: 0.9s transform;
 }
 
+/** {
+    outline: 1px solid red;
+}*/
 
-/* Menu */
-#menu ul {
-    font-family: Open Sans, sans-serif;
-    list-style: none;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+/* Mobile menu slide action */
+body.has-active-menu {
+    -webkit-transform: translateY(13em);
+    -ms-transform: translateY(13em);
+    transform: translateY(13em);
 }
 
-#menu li {
-    font-size: 1.2em;
-    line-height: 2em;
-    height: 2em;
-    font-weight: bold;
-}
-
-#menu a {
-    text-decoration: none;
-    color: #0a0a0a;
-    text-transform: uppercase;
-    border-bottom: 1px solid #888;
-    transition: 0.3s border-bottom;
-}
-
-#menu a {
-    border-bottom: 4px solid #666;
-}
-
-#menu a:hover, #menu a:active {
-    border-bottom: 4px solid hsl(182, 100%, 46%);
-}
-
-@media screen and (min-width: 600px) {
-    #menu li {
-        display: inline-block;
-        margin-right: 2em;
-        border-bottom: none;
-    }
+body.has-active-menu .podcast-title {
+    /*margin-top: 0;*/
+    /*padding-top: 1em;*/
 }
 
 /* Title of the 'cast '*/
 .podcast-title {
-    margin: 2% 0 5% 0;
+    padding: 1em 0 0.25em 0;
+    margin: 0;
     width: 100%;
     text-align: center;
     font-size: 1.5em;
@@ -63,13 +40,102 @@ body, html {
     border-bottom: 4px double #666;
 }
 
-
-
 /* No styles (use inherited) for blank <a> tags */
 a.nostyle {
     text-decoration: inherit;
     color: inherit;
 }
+
+
+/* Menu */
+/* Mobile push-down menu */
+#menu {
+    position: fixed;
+    width: 100%;
+    top: calc(-13em - 2px);
+    height: 13em;
+    text-align: center;
+    outline: 2px solid black;
+}
+
+#menu ul, .menu-toggle {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-family: Open Sans, sans-serif;
+    font-weight: bold;
+}
+
+.menu-toggle {
+    position: fixed;
+    padding: 0px 10px 2px 10px;
+    top: 0;
+    text-align: left;
+    font-size: 1.25em;
+    height: 1em;
+}
+.menu-toggle .menu-a {
+    display: none;
+    border: 3px double black;
+    border-top: none;
+    background-color: hsla(38, 66%, 94%, 0.75);
+}
+.menu-toggle .is-active {
+    display: inline;
+}
+
+#menu li {
+    font-size: 1.2em;
+    line-height: 2em;
+    height: 2em;
+}
+
+.menu-a {
+    text-decoration: none;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    border-bottom: 1px solid #888;
+    transition: 0.3s border-bottom;
+}
+
+.menu-a {
+    border-bottom: 4px solid #666;
+}
+
+.menu-a:hover, .menu-a:active {
+    border-bottom: 4px solid hsl(182, 100%, 46%);
+}
+
+/* Widescreen header menu */
+@media screen and (min-width: 600px) {
+    #menu {
+        position: relative;
+        top: 0;
+        height: auto;
+        outline: none;
+    }
+    #menu li {
+        display: inline-block;
+        margin-right: 2em;
+        border-bottom: none;
+    }
+    .menu-toggle {
+        display: none;
+    }
+
+    body.has-active-menu {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+    .podcast-title {
+        padding: 0.25em 0;
+    }
+}
+
+
 
 /* Widescreen stylings */
 @media screen and (min-width: 600px) {
