@@ -70,15 +70,19 @@ a.nostyle {
 
 .menu-toggle {
     position: fixed;
-    padding: 0px 10px 2px 10px;
+    padding: 0px 10px 5px 10px;
     top: 0;
     text-align: left;
-    font-size: 1.25em;
+    font-size: 1.2em;
     height: 1em;
 }
 .menu-toggle .menu-a {
     display: none;
+    padding: 5px 20px;
+    letter-spacing: 2px;
+    vertical-align: middle;
     border: 3px double black;
+    box-sizing: border-box;
     border-top: none;
     background-color: hsla(38, 66%, 94%, 0.75);
 }

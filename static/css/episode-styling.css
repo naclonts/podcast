@@ -56,14 +56,17 @@ audio {
     border-radius:7px 7px 7px 7px ;
 }
 
-/* Fancy custom player */
+/*****************************/
+/* Fancy custom audio player */
+/*****************************/
 #player-container {
     margin: 30px 0;
-    width: 100%;
+    padding: 0;
     height: 50px;
     position: relative;
-    border-top: 3px double #666;
-    border-bottom: 3px double #666;
+    border-top: 3px double #111;
+    border-bottom: 3px double #111;
+    background-color: hsl(180, 21%, 34%);
 }
 
 .play-button {
@@ -94,6 +97,8 @@ audio {
     width: 100%;
     border-left: 1px solid #666;
     border-right: 1px solid #666;
+    background-color: hsl(180, 41%, 64%);
+    box-sizing: border-box;
 }
 
 .player-seeker {
