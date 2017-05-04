@@ -19,10 +19,6 @@ body.has-active-menu {
     transform: translateY(13em);
 }
 
-body.has-active-menu .podcast-title {
-    /*margin-top: 0;*/
-    /*padding-top: 1em;*/
-}
 
 /* Title of the 'cast '*/
 .podcast-title {
@@ -35,10 +31,15 @@ body.has-active-menu .podcast-title {
     font-weight: bolder;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: hsl(300, 7%, 30%);
     font-family: serif;
     border-bottom: 4px double #666;
+    color: hsl(300, 7%, 30%);
+    transition: 1s color;
 }
+.podcast-title:hover, .podcast-title:active {
+    color: hsla(182, 100%, 46%, 0.51);
+}
+
 
 /* No styles (use inherited) for blank <a> tags */
 a.nostyle {
