@@ -22,7 +22,7 @@ body.has-active-menu {
 
 /* Title of the 'cast '*/
 .podcast-title {
-    padding: 1em 0 0.25em 0;
+    padding: 2em 0 0.25em 0;
     margin: 0;
     width: 100%;
     text-align: center;
@@ -53,10 +53,10 @@ a.nostyle {
 #menu {
     position: fixed;
     width: 100%;
-    top: calc(-13em - 2px);
+    top: calc(-13em);
     height: 13em;
     text-align: center;
-    outline: 2px solid black;
+    outline: 1px solid #666;
 }
 
 #menu ul, .menu-toggle {
@@ -70,8 +70,8 @@ a.nostyle {
 }
 
 .menu-toggle {
+    display: table;
     position: fixed;
-    padding: 0px 10px 5px 10px;
     top: 0;
     text-align: left;
     font-size: 1.2em;
@@ -79,16 +79,19 @@ a.nostyle {
 }
 .menu-toggle .menu-a {
     display: none;
-    padding: 5px 20px;
+    padding: 0.0em 3em;
+    line-height: 2em;
+    width: 100%;
     letter-spacing: 2px;
+    text-align: center;
     vertical-align: middle;
-    border: 3px double black;
+    border: 3px double #666;
     box-sizing: border-box;
     border-top: none;
     background-color: hsla(38, 66%, 94%, 0.75);
 }
 .menu-toggle .is-active {
-    display: inline;
+    display: table-cell;
 }
 
 #menu li {
